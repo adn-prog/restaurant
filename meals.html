@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الوجبات — مطعمنا الإلكتروني</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="animated-bg"></div>
+<canvas id="orb-canvas"></canvas>
+
+<nav class="f-navbar">
+  <a href="index.html">الرئيسية</a>
+  <a href="meals.html">الوجبات</a>
+  <a href="aboutus.html">من نحن</a>
+</nav>
+
+<h2 class="section-title">🍽️ قائمة الوجبات</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>اختيار</th>
+      <th>تفاصيل</th>
+      <th>السعر $</th>
+      <th>الوجبة</th>
+      <th>الصورة</th>
+      <th>الرمز</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td><input type="checkbox" value="7" onchange="updateTotal()"></td>
+      <td><button onclick="toggleDetails('d1')">عرض</button></td>
+      <td>7</td>
+      <td>سمك مشوي</td>
+      <td><img src="img/fi.png" class="M-img" alt="سمك مشوي"></td>
+      <td>SF-001</td>
+    </tr>
+    <tr id="d1" class="details">
+      <td colspan="6">
+        <div class="details-inner">
+          <div class="details-img">
+            <img src="img/fi.png" alt="سمك مشوي">
+          </div>
+          <div class="details-text text-tp">
+            <b>المطبخ:</b> المصري &nbsp;|&nbsp; <b>تصنيف الطعام:</b> مأكولات بحرية<br><br>
+            <b>المكونات:</b>
+            <ul>
+              <li>4 سمكات بوري طازجة</li>
+              <li>أوريجانو وتوابل البحر</li>
+              <li>ملح + فلفل أسود</li>
+            </ul>
+            <b>الصلصة:</b>
+            <ul>
+              <li>زيت زيتون بكر</li>
+              <li>ثوم مفروم</li>
+              <li>طماطم طازجة</li>
+              <li>عصير ليمون</li>
+            </ul>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td><input type="checkbox" value="10" onchange="updateTotal()"></td>
+      <td><button onclick="toggleDetails('d2')">عرض</button></td>
+      <td>10</td>
+      <td>دجاج مشوي</td>
+      <td><img src="img/ch.png" class="M-img" alt="دجاج مشوي"></td>
+      <td>SF-002</td>
+    </tr>
+    <tr id="d2" class="details">
+      <td colspan="6">
+        <div class="details-inner">
+          <div class="details-img">
+            <img src="img/ch.png" alt="دجاج مشوي">
+          </div>
+          <div class="details-text text-tp">
+            <b>المطبخ:</b> لبناني &nbsp;|&nbsp; <b>تصنيف الطعام:</b> دواجن<br><br>
+            <b>المكونات:</b>
+            <ul>
+              <li>دجاج كامل منزوع الجلد</li>
+              <li>بهارات شرقية</li>
+              <li>زعتر وكزبرة</li>
+            </ul>
+            <b>الصلصة:</b>
+            <ul>
+              <li>ثوم مطحون</li>
+              <li>حامض وزيت</li>
+            </ul>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td><input type="checkbox" value="22" onchange="updateTotal()"></td>
+      <td><button onclick="toggleDetails('d3')">عرض</button></td>
+      <td>22</td>
+      <td>برجر المحيط</td>
+      <td><img src="img/br.png" class="M-img" alt="برجر المحيط"></td>
+      <td>SF-003</td>
+    </tr>
+    <tr id="d3" class="details">
+      <td colspan="6">
+        <div class="details-inner">
+          <div class="details-img">
+            <img src="img/br.png" alt="برجر المحيط">
+          </div>
+          <div class="details-text text-tp">
+            <b>المطبخ:</b> أمريكي &nbsp;|&nbsp; <b>تصنيف الطعام:</b> مأكولات بحرية<br><br>
+            <b>المكونات:</b>
+            <ul>
+              <li>برجر سمك مقرمش</li>
+              <li>جبنة شيدر</li>
+              <li>خس + خيار + طماطم</li>
+            </ul>
+            <b>الصلصة:</b>
+            <ul>
+              <li>مايونيز ليمون</li>
+              <li>مخلل</li>
+            </ul>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td><input type="checkbox" value="15" onchange="updateTotal()"></td>
+      <td><button onclick="toggleDetails('d4')">عرض</button></td>
+      <td>15</td>
+      <td>صياد الشاطئ</td>
+      <td><img src="img/fil.png" class="M-img" alt="صياد الشاطئ"></td>
+      <td>SF-004</td>
+    </tr>
+    <tr id="d4" class="details">
+      <td colspan="6">
+        <div class="details-inner">
+          <div class="details-img">
+            <img src="img/fil.png" alt="صياد الشاطئ">
+          </div>
+          <div class="details-text text-tp">
+            <b>المطبخ:</b> بريطاني &nbsp;|&nbsp; <b>تصنيف الطعام:</b> مأكولات بحرية<br><br>
+            <b>المكونات:</b>
+            <ul>
+              <li>سمك فيليه مقرمش</li>
+              <li>بطاطا مقلية ذهبية</li>
+              <li>كول سلو طازج</li>
+            </ul>
+            <b>الصلصة:</b>
+            <ul>
+              <li>تارتار كريمي</li>
+            </ul>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td><input type="checkbox" value="30" onchange="updateTotal()"></td>
+      <td><button onclick="toggleDetails('d5')">عرض</button></td>
+      <td>30</td>
+      <td>لؤلؤة البحر</td>
+      <td><img src="img/pe.png" class="M-img" alt="لؤلؤة البحر"></td>
+      <td>SF-005</td>
+    </tr>
+    <tr id="d5" class="details">
+      <td colspan="6">
+        <div class="details-inner">
+          <div class="details-img">
+            <img src="img/pe.png" alt="لؤلؤة البحر">
+          </div>
+          <div class="details-text text-tp">
+            <b>المطبخ:</b> متوسطي &nbsp;|&nbsp; <b>تصنيف الطعام:</b> مأكولات بحرية<br><br>
+            <b>المكونات:</b>
+            <ul>
+              <li>جمبري ملكي مشوي</li>
+              <li>أرز بسمتي بالزعفران</li>
+              <li>خضار سوتيه + شرائح ليمون</li>
+            </ul>
+            <b>الصلصة:</b>
+            <ul>
+              <li>زبدة مذابة</li>
+              <li>ثوم وليمون</li>
+            </ul>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h3>💰 المجموع: <span id="total">0</span> $</h3>
+
+<div style="text-align:center; margin:18px 0;">
+  <button onclick="showForm()">متابعة الطلب ←</button>
+</div>
+
+<div id="formSection" style="display:none;">
+  <h3>📋 بيانات التوصيل</h3>
+  <form onsubmit="return validateForm()">
+    <input id="name"     placeholder="الاسم الكامل">
+    <input id="national" placeholder="الرقم الوطني (11 رقماً)">
+    <input id="date"     placeholder="تاريخ الميلاد يوم-شهر-سنة">
+    <input id="phone"    placeholder="رقم الهاتف 09xxxxxxxx">
+    <input id="email"    placeholder="البريد الإلكتروني">
+    <br>
+    <button type="submit" style="margin-top:14px;">✅ إرسال الطلب</button>
+  </form>
+</div>
+
+<div class="footer footer-static">
+  <p>BAIT_IWB202_S25</p>
+</div>
+
+<script src="script.js"></script>
+
+<script src="bg.js"></script>
+</body>
+</html>
